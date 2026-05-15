@@ -80,7 +80,7 @@ closeMenu.addEventListener("click", () => {
     nextArrow: '<div class="slick-next"><i class="fa-solid fa-arrow-right-long"></i></div>',
     dots: false,
     infinite: true,
-    speed: 700,
+    speed: 2000,
     autoplay: true,
 
      responsive: [
