@@ -1769,6 +1769,7 @@ button.leran-more {
     left: unset;
     bottom: unset;
     margin-top: 30px;
+    width: 100%;
   }
 
   .three-column .title-box {
@@ -1860,12 +1861,15 @@ button.leran-more {
 
   .help-box {
     margin: 24px 15px;
-    flex-direction: column;
     gap: 10px;
   }
 
+      .left-help {
+        width: 57%;
+    }
+
   .right-help {
-    width: 100%;
+    width: 38%;
     display: block;
 }
 
@@ -2172,6 +2176,10 @@ button.leran-more {
       .email-right button {
         width: 100%;
         font-size: 13px;
+    }
+
+    .left-help{
+      width: 100%;
     }
 }
 
