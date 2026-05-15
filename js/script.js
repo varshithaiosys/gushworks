@@ -81,6 +81,7 @@ closeMenu.addEventListener("click", () => {
     dots: false,
     infinite: true,
     speed: 700,
+    autoplay: true,
 
      responsive: [
         {
