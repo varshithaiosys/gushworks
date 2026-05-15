@@ -2105,6 +2105,11 @@ thead th:not(:last-child) {
         .min-logos {
         width: 88%;
     }
+
+ .blog-img img {
+    width: 100%;
+    margin-top: 20px;
+}
 }
 
 
