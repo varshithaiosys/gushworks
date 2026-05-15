@@ -1821,6 +1821,30 @@ button.leran-more {
 .left-help {
     width: 60%;
 }
+
+.email-left ,
+.email-right{
+    width: 100%;
+}
+
+.input-conatiner {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.email-right input.forms {
+    width: 58%;
+    margin-right: 2%;
+    font-size: 9px;
+    margin-bottom: 0;
+}
+
+.email-right button {
+    width: 40%;
+    font-size: 9px;
+}
 }
 
 
@@ -2137,6 +2161,18 @@ button.leran-more {
   .banner-section .content-container h1 {
     font-size: 36px;
   }
+
+  .email-right input.forms{
+    width: 100%;
+        margin-right: 0;
+        font-size: 13px;
+        margin-bottom: 10px;
+  }
+
+      .email-right button {
+        width: 100%;
+        font-size: 13px;
+    }
 }
 
 /*--- responsive view ends here ----*/
