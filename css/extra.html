@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky Header</title>
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        /* =========================
+           HERO SECTION
+        ========================== */
+
+        .hero-section {
+            height: 100vh;
+            background: linear-gradient(135deg, #dbeafe, #f8fafc);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-section h1 {
+            font-size: 60px;
+            color: #111827;
+        }
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        .header {
+            width: 100%;
+            padding: 18px 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 999;
+            transition: all 0.4s ease;
+            background: #fff;
+        }
+
+        .header.sticky {
+            position: fixed;
+            top: -100px;
+            left: 0;
+            background: #fff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            animation: slideDown 0.5s ease forwards;
+        }
+
+        @keyframes slideDown {
+            100% {
+                top: 0;
+            }
+        }
+
+        .container {
+            width: 92%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Logo */
+
+        .logo img {
+            max-width: 140px;
+            display: block;
+        }
+
+        /* Menu */
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+        }
+
+        .nav-menu li {
+            position: relative;
+        }
+
+        .nav-menu li a {
+            color: #111827;
+            font-size: 15px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-menu li a:hover {
+            color: #2d3ea8;
+        }
+
+        /* Dropdown */
+
+        .dropdown-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .submenu {
+            position: absolute;
+            top: 130%;
+            left: 0;
+            min-width: 220px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            padding: 10px 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: 0.35s ease;
+        }
+
+        .submenu li a {
+            display: block;
+            padding: 12px 18px;
+            font-size: 14px;
+        }
+
+        .dropdown:hover .submenu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* Button */
+
+        .contact-btn {
+            background: #2d3ea8;
+            color: #fff !important;
+            padding: 12px 22px;
+            border-radius: 10px;
+        }
+
+        .contact-btn:hover {
+            background: #1f318f;
+        }
+
+        /* =========================
+           MOBILE MENU
+        ========================== */
+
+        .mobile-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 991px) {
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: #fff;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 90px 25px;
+                gap: 25px;
+                transition: 0.4s ease;
+                box-shadow: -5px 0 20px rgba(0, 0, 0, 0.08);
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .submenu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                display: none;
+                box-shadow: none;
+                padding-top: 10px;
+            }
+
+            .dropdown.active .submenu {
+                display: block;
+            }
+
+            .dropdown-btn {
+                justify-content: space-between;
+                width: 100%;
+            }
+
+            .hero-section h1 {
+                font-size: 40px;
+                text-align: center;
+                padding: 0 20px;
+            }
+        }
+
+        /* =========================
+           CONTENT
+        ========================== */
+
+        .content {
+            padding: 100px 0;
+        }
+
+        .content .container {
+            max-width: 900px;
+        }
+
+        .content h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #4b5563;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="header" id="header">
+
+        <div class="container">
+
+            <nav class="navbar">
+
+                <!-- Logo -->
+
+                <a href="#" class="logo">
+                    <img src="https://www.mangalamworldwide.com/images/logo.png" alt="Logo">
+                </a>
+
+                <!-- Menu -->
+
+                <ul class="nav-menu" id="navMenu">
+
+                    <li>
+                        <a href="#">About Us</a>
+                    </li>
+
+                    <li class="dropdown">
+
+                        <a href="#" class="dropdown-btn">
+                            Products
+                            <i class="fa-solid fa-angle-down"></i>
+                        </a>
+
+                        <ul class="submenu">
+                            <li><a href="#">HDPE Pipes</a></li>
+                            <li><a href="#">Water Solutions</a></li>
+                            <li><a href="#">Industrial Pipes</a></li>
+                        </ul>
+
+                    </li>
+
+                    <li>
+                        <a href="#" class="contact-btn">
+                            Contact Us
+                        </a>
+                    </li>
+
+                </ul>
+
+                <!-- Mobile Toggle -->
+
+                <div class="mobile-toggle" id="mobileToggle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- HERO -->
+
+    <section class="hero-section">
+        <h1>Scroll Down</h1>
+    </section>
+
+
+    <!-- CONTENT -->
+
+    <section class="content">
+
+        <div class="container">
+
+            <h2>Sticky Header Example</h2>
+
+            <p>
+                This sticky header appears after scrolling beyond the first fold.
+                It smoothly slides from the top and disappears when scrolling back up.
+            </p>
+
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Amet molestiae rem veritatis possimus asperiores odit.
+            </p>
+
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Exercitationem quisquam officia minima unde illum!
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <script>
+
+        // =========================
+        // STICKY HEADER
+        // =========================
+
+        const header = document.getElementById("header");
+
+        window.addEventListener("scroll", () => {
+
+            if (window.scrollY > window.innerHeight - 100) {
+                header.classList.add("sticky");
+            } else {
+                header.classList.remove("sticky");
+            }
+
+        });
+
+
+        // =========================
+        // MOBILE MENU
+        // =========================
+
+        const mobileToggle = document.getElementById("mobileToggle");
+        const navMenu = document.getElementById("navMenu");
+
+        mobileToggle.addEventListener("click", () => {
+            navMenu.classList.toggle("active");
+        });
+
+
+        // =========================
+        // MOBILE DROPDOWN
+        // =========================
+
+        const dropdowns = document.querySelectorAll(".dropdown");
+
+        dropdowns.forEach(dropdown => {
+
+            const btn = dropdown.querySelector(".dropdown-btn");
+
+            btn.addEventListener("click", (e) => {
+
+                if (window.innerWidth < 992) {
+
+                    e.preventDefault();
+
+                    dropdown.classList.toggle("active");
+
+                }
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>
