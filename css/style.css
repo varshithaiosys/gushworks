@@ -1615,13 +1615,6 @@ button.leran-more {
   }
 
 
-  .stepper-container .card-body {
-    max-width: 550px;
-    margin: 0 auto;
-    padding: 0px;
-    border: 1px solid #eef0f3;
-  }
-
   /* Convert inner section to single block stack layout */
   .stepper-container .content-layout {
     grid-template-columns: 1fr;
